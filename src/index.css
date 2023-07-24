@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0px;
+    background-color: blueviolet;
+}
+
+.input,
+.submit {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: dark;
+    background-color: aliceblue;
+}
+
+.input {
+    margin-right: 8px;
+}
+
+.js-load-more {
+    color: black;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(0, 174, 255, 0.575);
+    padding: 8px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: none;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.js-pag-end {
+    margin: 50px auto;
+    font-size: 50px;
+}
+
+.photo-card {
+    border-radius: 8px;
+    border-color: black;
+    background-color: azure;
+    padding: 10px;
+}
+
+.card-img {
+    width: 600px;
+}
+
+.info-text {
+    font-size: 15px;
+    color: gray;
+}
+
+.info-item {
+    margin-top: 8px;
+}
