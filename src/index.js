@@ -28,6 +28,10 @@ async function onFormSubmit(evt) {
     refs.loadMore.classList.remove('hidden')
     currentQuery = evt.target[0].value;
     const resp = await fetchImgages(currentQuery);
+    if (resp.data.hits.length < 40) {
+        refs.pagEnd.classList.remove('hidden');
+        refs.loadMore.classList.add('hidden')
+    }
     if (resp.data.total === 0) {
         refs.loadMore.classList.add('hidden')
         Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
@@ -49,6 +53,10 @@ async function loadMore() {
     if (resp.data.hits.length < 1) {
         refs.loadMore.classList.add('hidden')
         refs.pagEnd.hidden = false;
+    }
+    if (resp.data.hits.length < 40) {
+        refs.pagEnd.classList.remove('hidden');
+        refs.loadMore.classList.add('hidden')
     }
 }
 
