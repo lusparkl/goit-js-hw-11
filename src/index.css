@@ -34,7 +34,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    display: none;
+    display: block;
 }
 
 .gallery {
@@ -66,4 +66,8 @@
 
 .info-item {
     margin-top: 8px;
+}
+
+.hidden {
+    display: none;
 }

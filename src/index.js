@@ -23,13 +23,15 @@ let currentQuery;
 async function onFormSubmit(evt) {
     evt.preventDefault();
     page = 1;
-    refs.pagEnd.hidden = true;
+    refs.pagEnd.classList.add('hidden');
 
-    refs.loadMore.style.display = 'block';
+    refs.loadMore.classList.remove('hidden')
     currentQuery = evt.target[0].value;
     const resp = await fetchImgages(currentQuery);
     if (resp.data.total === 0) {
+        refs.loadMore.classList.add('hidden')
         Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+        refs.pagEnd.classList.remove('hidden');
         return;
     }
     refs.gallery.innerHTML = createMarkup(resp.data);
@@ -45,7 +47,7 @@ async function loadMore() {
     refs.gallery.insertAdjacentHTML('beforeend', createMarkup(resp.data));
     gallery.refresh();
     if (resp.data.hits.length < 1) {
-        refs.loadMore.style.display = 'none';
+        refs.loadMore.classList.add('hidden')
         refs.pagEnd.hidden = false;
     }
 }
